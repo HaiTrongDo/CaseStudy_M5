@@ -1,11 +1,13 @@
-import "./styles.css";
+import React from 'react';
+import './App.css'
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello Hai Do </h1>
-      <h1>how are you doing to day </h1>
-     <button onClick={()=>{console.log("You click Subumit")}}> Submit </button>  
-    </div>
-  );
-}
+
+const App = () => {
+    return (
+        <div>
+            <h1 className="underline text-3xl">Hello</h1>
+        </div>
+    );
+};
+
+export default App;

@@ -21,16 +21,18 @@ import {
     ColorMapping,
     Editor
 } from './pages'
+import {useStateContext} from './contexts/ContextProvider'
+
 
 import './App.css'
 
 
 const App = () => {
-    const activeMenu = true
+    const {activeMenu} = useStateContext()
     return (
         <div>
             <BrowserRouter>
-                <div className="flex relative dark: bg-main-dark-bg">
+                <div className="flex relative dark:bg-main-dark-bg">
                     <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
                         <TooltipComponent content='Settings' position="Top">
                             <button type="button"
@@ -41,8 +43,8 @@ const App = () => {
                         </TooltipComponent>
                     </div>
                     {activeMenu ? (
-                        <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-                            Sidebar
+                        <div className=" w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+                            <Sidebar/>
                         </div>
                     ) : (
                         <div

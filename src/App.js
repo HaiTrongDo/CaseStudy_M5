@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
@@ -24,9 +24,11 @@ import {
 } from './pages';
 import './App.css';
 
+
 import {useStateContext} from './contexts/ContextProvider';
 
 const App = () => {
+    const [employeesData, setEmployeeData] = useState([])
     const {
         setCurrentColor,
         setCurrentMode,
@@ -37,6 +39,8 @@ const App = () => {
         setThemeSettings
     } = useStateContext();
 
+
+ 
     useEffect(() => {
         const currentThemeColor = localStorage.getItem('colorMode');
         const currentThemeMode = localStorage.getItem('themeMode');
@@ -47,6 +51,7 @@ const App = () => {
     }, []);
 
     return (
+   
         <div className={currentMode === 'Dark' ? 'dark' : ''}>
             <BrowserRouter>
                 <div className="flex relative dark:bg-main-dark-bg">

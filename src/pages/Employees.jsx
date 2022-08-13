@@ -1,4 +1,5 @@
 import React from "react";
+import { DataManager, UrlAdaptor } from "@syncfusion/ej2-data";
 import {
   GridComponent,
   Inject,
@@ -17,6 +18,15 @@ import { MaskedTextBoxComponent } from "@syncfusion/ej2-react-inputs";
 
 import { employeesData, employeesGrid } from "../data/dummy";
 import { Header } from "../components";
+
+const baseURL = "http://localhost:8080";
+const data = new DataManager({
+  adaptor: new UrlAdaptor(),
+  insertUrl: baseURL + "/employees/insert",
+  removeUrl: baseURL + "/employees/delete",
+  updateUrl: baseURL + "/employees/update",
+  url: baseURL + "/employees/",
+});
 
 const Employees = () => {
   const editing = {

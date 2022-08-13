@@ -15,7 +15,7 @@ import {
 } from "@syncfusion/ej2-react-grids";
 
 import { MaskedTextBoxComponent } from "@syncfusion/ej2-react-inputs";
-
+import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { employeesData, employeesGrid } from "../data/dummy";
 import { Header } from "../components";
 
@@ -53,6 +53,14 @@ const Employees = () => {
     );
   }
 
+  function dropDownTemplate() {
+    return (
+      <DropDownListComponent
+        dataSource={["Marketing", "HR", "Marketing Head", "Other"]}
+      />
+    );
+  }
+
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Page" title="Employees" />
@@ -75,6 +83,7 @@ const Employees = () => {
             headerText="Department"
             width="100"
             editType="dropdownedit"
+            // editTemplate={dropDownTemplate}
           />
           <ColumnDirective
             field="HireDate"
